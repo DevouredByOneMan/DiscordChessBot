@@ -43,5 +43,5 @@ async def hello(ctx):
 @bot.command()
 async def chess(ctx):
     await ctx.send("Chess")
-
+#rule test
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
