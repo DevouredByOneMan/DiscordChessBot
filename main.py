@@ -44,7 +44,7 @@ async def hello(ctx):
 
 @bot.command()
 async def chess(ctx):
-    piece1 = Piece('B', '■')
+    piece1 = Piece('■', 'B')
     await ctx.send(piece1)
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
