@@ -1,10 +1,12 @@
 from email import message
-
 import discord
 from discord.ext import commands
 import logging
 from dotenv import load_dotenv
 import os
+
+#custom imports
+from chess_pieces import Piece
 
 #Discord Bot Token Loading and Initialization
 load_dotenv()
@@ -42,6 +44,7 @@ async def hello(ctx):
 
 @bot.command()
 async def chess(ctx):
-    await ctx.send("Chess")
-#rule test
+    piece1 = Piece('B', '■')
+    await ctx.send(piece1)
+
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
