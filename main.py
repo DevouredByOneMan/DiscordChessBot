@@ -4,9 +4,10 @@ from discord.ext import commands
 import logging
 from dotenv import load_dotenv
 import os
-
+import asyncio
 #custom imports
 from chess_pieces import Piece
+from board import Board
 
 #Discord Bot Token Loading and Initialization
 load_dotenv()
@@ -44,7 +45,38 @@ async def hello(ctx):
 
 @bot.command()
 async def chess(ctx):
-    piece1 = Piece('■', 'B')
-    await ctx.send(piece1)
+    print("chess")
+    board1 = Board()
+    print('works')
+    board1.printTable()
+    game_msg = await ctx.send(board1)
+
+    def verify_challenge(w):
+        return w.author == ctx.author and w.channel == ctx.channel and w.mentions
+
+    def verify_player1(w):
+        return w.author == ctx.author and w.channel == ctx.channel
+
+    def verify_player2(w):
+        return w.author == ctx.author and w.channel == ctx.channel
+
+    try:
+        msg = await bot.wait_for("message", check=verify_challenge, timeout=30.0)
+        player1 = ctx.author
+        player2 = msg.mentions[0]
+        await ctx.send(f"{player1.mention} vs {player2.mention}")
+
+    except asyncio.TimeoutError:
+        await ctx.send("Timed out")
+
+    while True:
+        msg = await bot.wait_for("message", check=verify_player1, timeout=30.0)
+        if msg.content.lower() == "move":
+            board1.move()
+            await game_msg.edit(content=board1)
+        if msg.content.lower() == "quit":
+            print("quit")
+            break
+
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)

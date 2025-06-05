@@ -20,21 +20,50 @@ class Board:
     WK = White_King()
     WP = White_Pawn()
 
-    table = [
-        ["♣ |  A   B   C  D   E   F   G   H"],
-        ["--|------------------------"],
-        [" 1 | ", BR.value, BN.value, BB.value, BQ.value, BK.value, BB.value, BN.value,  BR.value],
-        ["2 | ", BP.value, BP.value, BP.value, BP.value, BP.value, BP.value, BP.value, BP.value],
-        ["3 | ", WS.value, BS.value, WS.value, BS.value, WS.value, BS.value, WS.value, BS.value],
-        ["4 | ", BS.value, WS.value, BS.value, WS.value, BS.value, WS.value, BS.value, WS.value],
-        ["5 | ", WS.value, BS.value, WS.value, BS.value, WS.value, BS.value, WS.value, BS.value],
-        ["6 | ", BS.value, WS.value, BS.value, WS.value, BS.value, WS.value, BS.value, WS.value],
-        ["7 | ", WP.value, WP.value, WP.value, WP.value, WP.value, WP.value, WP.value, WP.value],
-        ["8 | ", WR.value, WN.value, WB.value, WQ.value, WK.value, WB.value, WN.value, WR.value],
-        ["--|------------------------"],
-        ["    |  A   B   C  D   E   F   G   H"]
-    ]
+    table = [[BR, BN, BB, BQ, BK, BB, BN, BR],
+        [BP, BP, BP, BP, BP, BP, BP, BP],
+        [WS, BS, WS, BS, WS, BS, WS, BS],
+        [BS, WS, BS, WS, BS, WS, BS, WS],
+        [WS, BS, WS, BS, WS, BS, WS, BS],
+        [BS, WS, BS, WS, BS, WS, BS, WS],
+        [WP, WP, WP, WP, WP, WP, WP, WP],
+        [WR, WN, WB, WQ, WK, WB, WN, WR]]
+
+    def move(self):
+        self.table[6][4] = self.WS
+        self.table[4][4] = self.WP
+
+    def printTable(self):
+        #return a string that displays on discord
+        top_border = [
+            ["♣ |  A   B   C  D   E   F   G   H"],
+            ["--|------------------------"]
+        ]
+        bot_border = [
+            ["--|------------------------"],
+            ["    |  A   B   C  D   E   F   G   H"]
+        ]
+        sid_border = [ "8 | ", "7 | " , "6 | ", "5 | ", "4 | ", "3 | ","2 | "," 1 | "]
+
+        parts = []
+
+        for tb in top_border:
+            parts.append(tb)
+
+        c = 0
+        for i in self.table:
+            temp = []
+            temp.append(sid_border[c])
+            for j in i:
+                temp.append(j.value)
+            parts.append(temp)
+            c += 1
+
+
+        for bb in bot_border:
+            parts.append(bb)
+
+        return '\n'.join(' '.join(item for item in innerlist) for innerlist in parts)
 
     def __str__(self):
-        result = '\n'.join(' '.join(item for item in innerlist) for innerlist in self.table)
-        return result
+        return self.printTable()
