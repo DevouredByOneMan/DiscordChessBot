@@ -29,10 +29,20 @@ class Board:
         [WP, WP, WP, WP, WP, WP, WP, WP],
         [WR, WN, WB, WQ, WK, WB, WN, WR]]
 
-    def move(self):
-        self.table[6][4] = self.WS
-        self.table[4][4] = self.WP
+    def move(self, xi, yi, xo, yo):
+        #replace with respective square
+        self.table[yo][xo] = self.table[yi][xi]
+        self.place_square(xi, yi)
 
+    def place_square(self, x, y):
+        if x % 2 == 0 and y % 2 == 0:
+            self.table[y][x] = self.WS
+        elif x % 2 == 1 and y % 2 == 0:
+            self.table[y][x] = self.BS
+        elif x % 2 == 0 and y % 2 == 1:
+            self.table[y][x] = self.BS
+        elif x % 2 == 1 and y % 2 == 1:
+            self.table[y][x] = self.WS
     def printTable(self):
         #return a string that displays on discord
         top_border = [

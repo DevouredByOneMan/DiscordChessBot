@@ -5,6 +5,8 @@ import logging
 from dotenv import load_dotenv
 import os
 import asyncio
+
+from chess_game import position_verification
 #custom imports
 from chess_pieces import Piece
 from board import Board
@@ -45,9 +47,7 @@ async def hello(ctx):
 
 @bot.command()
 async def chess(ctx):
-    print("chess")
     board1 = Board()
-    print('works')
     board1.printTable()
     game_msg = await ctx.send(board1)
 
@@ -61,22 +61,34 @@ async def chess(ctx):
         return w.author == ctx.author and w.channel == ctx.channel
 
     try:
+        #Chess challenge procedure
         msg = await bot.wait_for("message", check=verify_challenge, timeout=30.0)
         player1 = ctx.author
         player2 = msg.mentions[0]
-        await ctx.send(f"{player1.mention} vs {player2.mention}")
+        thread = await msg.create_thread(name=f"{player1} vs {player2}", auto_archive_duration=30)
+        await thread.send(f"{player1.mention} vs {player2.mention}")
 
     except asyncio.TimeoutError:
         await ctx.send("Timed out")
 
+    #Chess Game
     while True:
         msg = await bot.wait_for("message", check=verify_player1, timeout=30.0)
         if msg.content.lower() == "move":
-            board1.move()
+            board1.move(4,6,4,4)
             await game_msg.edit(content=board1)
-        if msg.content.lower() == "quit":
+        elif msg.content.lower() == "quit":
             print("quit")
             break
+        elif msg.content.lower() == "help":
+            print("help")
+        elif position_verification(msg.content, board1):
+            print("pos verif")
+            await game_msg.edit(content=board1)
+        else:
+            print("fail")
+        #test
+        print("ignored")
 
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
