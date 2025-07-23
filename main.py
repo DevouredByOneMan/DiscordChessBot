@@ -65,8 +65,7 @@ async def chess(ctx):
         msg = await bot.wait_for("message", check=verify_challenge, timeout=30.0)
         player1 = ctx.author
         player2 = msg.mentions[0]
-        thread = await msg.create_thread(name=f"{player1} vs {player2}", auto_archive_duration=30)
-        await thread.send(f"{player1.mention} vs {player2.mention}")
+        await ctx.send(f"{player1.mention} vs {player2.mention}")
 
     except asyncio.TimeoutError:
         await ctx.send("Timed out")
@@ -90,5 +89,15 @@ async def chess(ctx):
         #test
         print("ignored")
 
+        #game logic
+        #./chess
+        #challenge w @
+        #bot sends a challenge message
+        #player 1 goes
+        #move gets deleted
+        #bot changes the challenge message to player 2 turn
+        #player 2 goes
+        #move gets deleted
+        #bot changes the chal msg to player 1 turn
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)

@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8be6b348-2a62-4a12-817a-f80e99027f51" name="Changes" comment="Chess Board Initialization">
+    <list default="true" id="8be6b348-2a62-4a12-817a-f80e99027f51" name="Changes" comment="Basic Chess Game Implemented">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chess_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/chess_game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chess_pieces.py" beforeDir="false" afterPath="$PROJECT_DIR$/chess_pieces.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -52,6 +51,7 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sqltest.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -64,6 +64,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ZEPTA\PycharmProjects\DiscordChessBot\test" />
+      <recent name="C:\Users\ZEPTA\PycharmProjects\DiscordChessBot" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DiscordChessBot" />
@@ -97,7 +103,6 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PY-251.25410.159" />
         <option value="bundled-python-sdk-e0ed3721d81e-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.159" />
       </set>
     </attachedChunks>
@@ -116,6 +121,10 @@
       <workItem from="1749045393376" duration="23542000" />
       <workItem from="1749073524525" duration="577000" />
       <workItem from="1749136612219" duration="14623000" />
+      <workItem from="1749153126448" duration="481000" />
+      <workItem from="1749562228551" duration="16453000" />
+      <workItem from="1749700303364" duration="77000" />
+      <workItem from="1751992183632" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="Hello World!">
       <option name="closed" value="true" />
@@ -189,7 +198,31 @@
       <option name="project" value="LOCAL" />
       <updated>1749072057479</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Chess Board Print Complete">
+      <option name="closed" value="true" />
+      <created>1749153206412</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749153206412</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Chess Board Print Complete">
+      <option name="closed" value="true" />
+      <created>1749153453429</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1749153453429</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Basic Chess Game Implemented">
+      <option name="closed" value="true" />
+      <created>1749582659335</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1749582659335</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,9 +236,12 @@
     <MESSAGE value="Chess Pieces commit" />
     <MESSAGE value="Chess Pieces: squares commit" />
     <MESSAGE value="Chess Board Initialization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chess Board Initialization" />
+    <MESSAGE value="Chess Board Print Complete" />
+    <MESSAGE value="secret" />
+    <MESSAGE value="Basic Chess Game Implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Chess Game Implemented" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DiscordChessBot$main.coverage" NAME="main Coverage Results" MODIFIED="1749153012986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DiscordChessBot$main.coverage" NAME="main Coverage Results" MODIFIED="1749700364543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

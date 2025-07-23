@@ -43,6 +43,13 @@ class Board:
             self.table[y][x] = self.BS
         elif x % 2 == 1 and y % 2 == 1:
             self.table[y][x] = self.WS
+
+    def returnPieceColor(self, x, y):
+        return self.table[y][x].color
+
+    def returnPieceValue(self, x, y):
+        return self.table[y][x].value
+
     def printTable(self):
         #return a string that displays on discord
         top_border = [
